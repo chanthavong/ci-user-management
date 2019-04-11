@@ -1,3 +1,17 @@
 body{
-	background-color: #ccc;
+
+}
+
+.container{
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.control{
+	padding: .2em .5em;
+}
+
+.form-box label{
+	display: block;
+	margin-top: .5em;
 }
