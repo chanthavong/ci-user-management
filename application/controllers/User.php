@@ -12,7 +12,10 @@ class User extends CI_Controller {
 
 	public function index()
 	{
-		echo 'index';
+		$rows_user['users'] = $this->users->get_all();
+
+		$data['content'] = $this->load->view('user/user-index', $rows_user, true);
+		$this->load->view('v-main', $data, FALSE);
 	}
 
 	public function add()

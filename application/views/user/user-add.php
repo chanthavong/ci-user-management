@@ -17,6 +17,7 @@
 	</select>
 	<div>
 		<input type="submit" name="save" value="save">
+		<a href="<?php echo site_url('user') ?>">Cancel</a>
 	</div>
 </form>	
 </div>
