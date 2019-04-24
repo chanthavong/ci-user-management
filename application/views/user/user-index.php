@@ -7,6 +7,7 @@
 			<tr>
 				<th>Full name</th>
 				<th>Email</th>
+				<th>Role</th>
 				<th>Option</th>
 			</tr>
 		</thead>
@@ -15,9 +16,10 @@
 				<tr>
 				  <td><?php echo $key->fullname ?></td>
 				  <td><?php echo $key->email ?></td>
+				  <td><?php echo $key->role ?></td>
 				  <td>
-				  	<a href="">Edit</a>
-				  	<a href="">Delete</a>
+				  	<a href="<?php echo site_url('user/edit/'.$key->id) ?>">Edit</a>
+				  	<a onclick="return confirm('are you want to delete\n user: <?php echo $key->fullname ?> ?')" href="<?php echo site_url('user/delete/'.$key->id) ?>">Delete</a>
 				  </td>
 			  </tr>
 			<?php endforeach ?>

@@ -36,6 +36,14 @@ class User extends CI_Controller {
 
 		$val['password'] = $this->encrypt->encode($val['password']);
 
+		$id = $this->input->post('id');
+		if($id > 0){
+			$this->users->update($val,$id);
+			redirect(site_url('user'));
+			exit();
+		}
+
+
 		$id = $this->users->insert($val);
 		if ($id > 0) {
 			echo 'seaved id = '. $id;
@@ -43,15 +51,19 @@ class User extends CI_Controller {
 
 	}
 
-	public function edit($id=0,$name='')
+	public function edit($id=0)
 	{
-		# code...
-		$data['id1'] = $id;
-		$data['name'] = $name;
-		$view_edit = $this->load->view('user/user-edit',$data,true);
-		$data['view_edit'] = $view_edit;
+		$this->load->library('encrypt');
+		$data_user['user'] = $this->users->get($id);
+		$data['content'] = $this->load->view('user/user-edit', $data_user, true);
+		$this->load->view('v-main', $data, FALSE);
+	}
 
-		$this->load->view('user/user-index', $data);
+	public function delete($id)
+	{
+		$this->users->delete($id);
+		redirect(site_url('user'));
+		exit();
 	}
 
 }

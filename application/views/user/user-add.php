@@ -8,7 +8,7 @@
 	<input type="email" name="email" value="" placeholder="Email" class="control" 
 	required="">
 	<label for="">Password</label>
-	<input type="text" name="password" value="" placeholder="Email" class="control"
+	<input type="text" name="password" value="" placeholder="Password" class="control"
 	required="">
 	<label for="">Role Type</label>
 	<select name="role" class="control">

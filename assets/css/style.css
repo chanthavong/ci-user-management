@@ -15,3 +15,11 @@ body{
 	display: block;
 	margin-top: .5em;
 }
+
+.table{
+	border:1px solid #eee;
+}
+
+.table td{
+	border-bottom: 1px solid #eee;
+}
