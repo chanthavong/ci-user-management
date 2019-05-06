@@ -7,6 +7,8 @@ class User extends CI_Controller {
 	{
 		parent::__construct();
 		//Do your magic here
+		$this->loged->admin();
+
 		$this->load->model('users');
 	}
 
