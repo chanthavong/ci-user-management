@@ -35,6 +35,24 @@ class Profile extends CI_Controller
 		# code...
 		$val['fullname'] = $this->input->post('fullname');
 
+		// upload profile
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$config['max_size']     = 2*1024;
+		$config['max_width'] = '1024';
+		$config['max_height'] = '768';
+		$config['file_name'] = uniqid().rand(1000,9999);
+
+		$this->load->library('upload', $config);
+
+// Alternately you can set preferences by calling the ``initialize()`` method. Useful if you auto-load the class:
+		$this->upload->initialize($config);
+		if ($this->upload->do_upload('profile_image'))
+		{
+			$file = $this->upload->data();
+			$val['profile'] = $file['file_name'];
+		}
+
 		$id = $this->session->userdata('user_id');
 
 		$this->users->update($val,$id);

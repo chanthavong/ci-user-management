@@ -1,5 +1,6 @@
 <h1>User data</h1>
 <a href="<?php echo site_url('user/add') ?>">Add user</a>
+<a href="<?php echo site_url('profile') ?>">profile</a>
 <a href="<?php echo site_url('welcome/logout') ?>">Logout</a>
 <div>
 	<table class="table">
